@@ -6,7 +6,7 @@ let assetPrefix = ''
 let basePath = '/'
 
 if (isGithubActions) {
-  const repo = 'https://m-ttaylor.github.io'
+  const repo = 'matthew-personal-site'
   assetPrefix = `/${repo}/`
   basePath = `/${repo}`
 }
