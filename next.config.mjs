@@ -7,7 +7,12 @@ const nextConfig = {
       use: 'raw-loader',
     })
     return config
-  }
+  },
+  images: {
+    loader: 'akamai',
+    path: '',
+  },
+  assetPrefix: './',
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;
