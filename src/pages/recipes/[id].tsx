@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps<RecipeProps, Params> = async (contex
   return {
     props: {
       recipe,
-      key: id,
+      key: id, // Apparently we need a key to avoid things breaking randomly when navigating back and forth/directly
     },
   }
 }

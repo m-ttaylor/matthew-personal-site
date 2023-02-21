@@ -2,17 +2,6 @@ import { Recipe } from "@/types";
 
 const recipes: Recipe[] = [
   { 
-    name: "mashed potatoes",
-    description: "bar",
-    ingredients: `
-* potato
-* butter`,
-    instructions: "1. cook\n1. keep cooking",
-    tags: "foo, bar, spam",
-    notes: "",
-    _id: "mashed-potatoes"
-  },
-  { 
     name: "pasta con il pistacchio",
     description: "pasta with pistacchios and sausage",
     ingredients: `
@@ -35,6 +24,29 @@ Using two pans, one to saute the sausage, another for garlic:
     tags: "sausage, pistacchio, pistachio, tomato, pasta, italian",
     notes: "A paella pan or wok is good for combining ingredients",
     _id: "pasta-con-il-pistacchio"
+  },
+  {
+    name: "pancakes",
+    description: "basic pancakes",
+    ingredients: `
+* 1 cups AP flour
+* 1 tsp backing powder
+* 1/8 tsp table salt (about 1/4 tsp diamon crystal kosher salt)
+* 1 tbsp sugar
+* 1 eggs
+* 3/4 + cups milk
+* 1 tbsp melted butter, cooled slightly`,
+    instructions: `
+1. Heat a large skillet over medium low heat.
+1. Mix together dry ingredients in a large bowl.
+1. Separately, beat eggs into milk, then stir in butter.
+1. Lightly stir wet mixture into dry, thinning with additional milk if needed. Optionally, stir in a handful of chocolate chips, blueberries, or other additions.
+1. Cook pancakes in about a tsp of butter or oil, allowing fat to heat up before ladeling in about 1/4 cup of batter per pancake. 
+1. Flip pancakes when the surface bubbles, after around 2 minutes, and cook on the other side until just browned.
+1. To keep warm, optionally store on a heatproof plate in a 200 degree oven.`,
+    tags: "pancakes, breakfast",
+    notes: "makes about 2 servings of pancakes",
+    _id: "basic-pancakes"
   }
 ]
 
