@@ -26,7 +26,7 @@ const recipes: Recipe[] = [
 * 1 lb casarecce pasta
 * 1 cup crushed pistacchio, divided in two`,
     instructions: `
-Using two pans, one to saute the susage, another for garlic:
+Using two pans, one to saute the sausage, another for garlic:
 1. In the first pan, saute the sausage, casings removed, in olive oil and break up. When browned, add a glass of white wine and cook off.
 1. In the other pan, saute garlic and a bit of crushed red pepper. Once aromatic, add the chopped whole tomatoes and half of the pistacchio.
 1. Once the sauce is combined, allow to simmer for about 15 minutes. While sauce is simmering, cook pasta to package instructions. 

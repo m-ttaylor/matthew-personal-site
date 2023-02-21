@@ -14,5 +14,4 @@ const nextConfig = {
   },
   assetPrefix: './',
 }
-
-module.exports = nextConfig;
+export default nextConfig;
