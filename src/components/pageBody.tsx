@@ -3,7 +3,7 @@ interface Props {
 }
 
 const PageBody: React.FC<Props> = (props) => (
-  <div className="w-full max-w-3xl mt-4 mx-auto mb-6">
+  <div className="w-full max-w-4xl p-1 my-5 lg:mx-auto">
     {props.children}
   </div>
 )

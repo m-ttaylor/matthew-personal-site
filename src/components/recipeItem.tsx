@@ -1,5 +1,7 @@
 import { Recipe } from "@/types";
 import Link from "next/link";
+import PageBody from "./pageBody";
+import Tags from "./tags";
 
 export interface RecipeProps {
   recipe: Recipe
@@ -24,9 +26,9 @@ const RecipeItem = ({ recipe: { name, description, tags, ingredients, instructio
   
   return (
       
-    <div className="w-full max-w-4xl mx-auto mb-6">
+    <PageBody>
       <div>
-        <div className="flex mt-10 items-center justify-between flex-wrap-reverse">
+        <div className="flex items-center justify-between flex-wrap-reverse">
           <span className="flex text-white">
             <p className="rounded text-3xl lg:text-4xl text-slate-600 font-bold p-2">
               {name}
@@ -43,17 +45,9 @@ const RecipeItem = ({ recipe: { name, description, tags, ingredients, instructio
 
       <p className="text-2xl p-2">Steps</p>
       <article className="prose lg:prose-xl" dangerouslySetInnerHTML={{ __html: instructions }}></article>
-      {/* <p className="text-slate-600 p-2">{instructions}</p> */}
       <p className="text-2xl p-2">tags</p>
-      <div className="flex">
-        
-        {
-          tagsList.map(tag =>
-            <div className="text-slate-500 p-1" key={tag}>{tag}</div>
-          )
-          }
-      </div>
-    </div>
+      <Tags tagsList={tagsList}/>
+    </PageBody>
   );
 };
 

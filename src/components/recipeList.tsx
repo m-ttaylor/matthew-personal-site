@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Recipe } from "@/types"; 
+import Tags from "./tags";
 
 export interface RecipeListProps {
   recipes: Recipe[]
@@ -26,11 +27,7 @@ export const RecipeListItem = (props: RecipeListItemProps) => {
       <div className="flex-col">
         <p className="text-slate-600 p-1">{description}</p>
         {/* <p className="text-slate-600 p-2">tags: </p> */}
-        <div className="flex">
-          {tagsList.map(tag =>
-            <div className="text-slate-400 p-1" key={tag}>{tag}</div>
-        )}
-        </div>
+        <Tags tagsList={tagsList} />
       </div>
     </div>
   );
@@ -40,7 +37,7 @@ const RecipeList = ({ recipes }: {recipes: Recipe[]}) => {
   
   return (
     <div className="flex-col max-w-4xl w-full mx-auto">
-      <h1 className="mt-10 mb-4 p-2 text-4xl font-bold">Recipes</h1>
+      <h1 className="mb-4 p-2 text-4xl font-bold">Recipes</h1>
       {recipes.map(r =>
         <RecipeListItem
           key={r._id}

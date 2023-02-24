@@ -29,12 +29,12 @@ Using two pans, one to saute the sausage, another for garlic:
     name: "pancakes",
     description: "basic pancakes",
     ingredients: `
-* 1 cups AP flour
-* 1 tsp backing powder
-* 1/8 tsp table salt (about 1/4 tsp diamon crystal kosher salt)
+* 1 cup AP flour
+* 1 tsp baking powder
+* 1/8 tsp table salt (about 1/4 tsp diamond crystal kosher salt)
 * 1 tbsp sugar
-* 1 eggs
-* 3/4 + cups milk
+* 1 egg
+* 3/4+ cups milk
 * 1 tbsp melted butter, cooled slightly`,
     instructions: `
 1. Heat a large skillet over medium low heat.
@@ -47,6 +47,48 @@ Using two pans, one to saute the sausage, another for garlic:
     tags: "pancakes, breakfast",
     notes: "makes about 2 servings of pancakes",
     _id: "basic-pancakes"
+  },
+  {
+    name: "nashville hot tofu",
+    description: "sacrilege",
+    ingredients: `
+hot butter
+* 8 tbsp unsalted butter
+* 2 tbsp distilled vinegar
+* 1 tbsp hot sauce
+* 1 tbsp ground cayenne
+* 1 tsp black pepper
+* 1/2 tsp garlic powder
+* 1/2 tsp onion powder
+
+tofu
+* 1 package firm tofu, drained
+* 1/4 cup whole milk
+* 1 cup AP flour
+* 2 tbsp cornstarch
+* 2 tsp baking pwder
+* kosher salt
+* heaping 1/2 cup chilled seltzer water / club soda
+* vegetable oil
+
+assembly
+* 8 slider buns or quartered buns / bread
+* lettuce, pickles
+* mayonnaise or comeback sauce`,
+    instructions: `
+1. melt butter in a small saucepan and mix in remaining hot bbutter ingredients.
+1. Divide tofu into eight pieces by cuting the tofu in half parallel to the cutting board, then  quartering each half.
+1. Pat tofu dry and set on towel or paper towel lined plate.
+1. Place milk and half of the flour in shallow bowls.
+1. Whisk half the flour, cornstarch, baking powder, and salt together in a medium bowl, then gently whisk in soda water.
+1. Heat a half inch of oil in a heavy skillet to 375 degrees.
+1. Dredge tofu in milk, then completely coat in flour. Dip in batter, drip off excess, and cook in the oil in two batches.
+1. Fry undisturbed for at least 2 minutes to allow batter to set. Turn and cook for about 3 more minutes or until golden brown on all sides, flipping more as needed.
+1. Transfer cooked tofu to a paper towel-lined surface and sprinkle with salt.
+1. Brush tofu with hot tofu and serve on buns with desired toppings.`,
+    tags: "tofu, hot, nashville, big game, hungry boys",
+    notes: "",
+    _id: "nashville-hot-tofu"
   }
 ]
 

@@ -9,7 +9,7 @@ const TopBarItem = ({name, linkTo}: {name: string, linkTo: string}) => (
 const siteName = "Matthew's Site"
 
 const TopBar = () => (
-  <nav className="flex justify-center border-solid border-2 rounded-lg border-slate-400 mx-7 my-5">
+  <nav className="flex justify-center border-solid border-2 rounded-lg border-slate-400 mx-2 lg:mx-7 my-5">
     <div className="flex-col">
       <div className="text-center font-bold text-4xl">{siteName}</div>
       <div className="text-center">
