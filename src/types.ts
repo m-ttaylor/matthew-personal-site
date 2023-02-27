@@ -9,5 +9,6 @@ export type Recipe = {
   ingredients: string;
   instructions: string;
   notes: string | null;
+  category: string;
   _id: string;
 };

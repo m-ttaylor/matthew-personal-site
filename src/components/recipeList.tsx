@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Recipe } from "@/types"; 
 import Tags from "./tags";
 import PageBody from "./pageBody";
-import React, { useState } from "react";
+import React, { ChangeEventHandler, useState } from "react";
 
 export interface RecipeListProps {
   recipes: Recipe[]
@@ -37,26 +37,30 @@ export const RecipeListItem = (props: RecipeListItemProps) => {
   );
 };
 
-const FilterItem = ({name, toggleHandler, filter, setFilter}) => (
-  // needs type annotation
+interface FilterItemProps {
+  name: string
+  toggleHandler: (filter: boolean, setFilter: React.Dispatch<React.SetStateAction<boolean>>) => () => void
+  filter: boolean
+  setFilter: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const FilterItem = ({name, toggleHandler, filter, setFilter}: FilterItemProps) => (
   <>
-  <input onChange={toggleHandler(filter, setFilter)} type="checkbox" id={`${name}-filter`} name={name} className="hidden peer" required/>
-  <label 
-    htmlFor={`${name}-filter`}
-    className={`${filter ? "border-blue-600 text-blue-600" : "border-slate-300 text-slate-400"} rounded-lg border-2 text-xs font-bold py-1 px-4 mx-1 hover:text-gray-600 hover:bg-gray-100`} 
-  >
-    {name}
-  </label>
+    <input onChange={toggleHandler(filter, setFilter)} type="checkbox" id={`${name}-filter`} name={name} className="hidden peer" required/>
+    <label 
+      htmlFor={`${name}-filter`}
+      className={`${filter ? "border-blue-600 text-blue-600" : "border-slate-300 text-slate-400"} rounded-lg border-2 text-xs font-bold py-1 px-4 mx-1 hover:text-gray-600 hover:bg-gray-100`} 
+    >
+      {name}
+    </label>
   </>
 );
 
 const RecipeList = ({ recipes }: {recipes: Recipe[]}) => {
   
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [filters, setFilters] = useState<map<string, boolean>>({"food": true, "drinks": false});
   const [foodFilter, setFoodFilter] = useState<boolean>(true);
   const [drinksFilter, setDrinksFilter] = useState<boolean>(false);
-
 
   const handleSearchbar = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
