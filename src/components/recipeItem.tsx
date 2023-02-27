@@ -8,7 +8,7 @@ export interface RecipeProps {
 }
 
 const EditButton = ({id}: {id: string}) => (
-   <div className="inline-block text-sm px-3 leading-none border rounded text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 mt-6 lg:mt-0">
+   <div className="inline-block text-sm px-3 leading-none border rounded text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 lg:mt-0">
       <Link
         className="inline-flex items-center"
         href={`/recipes/edit/${id}`}
@@ -21,6 +21,14 @@ const EditButton = ({id}: {id: string}) => (
   </div>
 );
 
+const SubHeader = ({text}: {text: string}) => (
+  <p className="text-2xl text-slate-700 p-2 mt-2">{text}</p>
+);
+
+const MarkdownContent = ({content}: {content: string}) => (
+  <article className="prose lg:prose-xl px-2 " dangerouslySetInnerHTML={{ __html: content }}></article>
+);
+
 const RecipeItem = ({ recipe: { name, description, tags, ingredients, instructions, notes, _id } }:  RecipeProps ) => {
   const tagsList = tags.split(",");
   
@@ -29,23 +37,20 @@ const RecipeItem = ({ recipe: { name, description, tags, ingredients, instructio
     <PageBody>
       <div>
         <div className="flex items-center justify-between flex-wrap-reverse">
-          <span className="flex text-white">
-            <p className="rounded text-3xl lg:text-4xl text-slate-600 font-bold p-2">
+          <span className="flex">
+            <p className="text-3xl lg:text-4xl text-slate-700 font-bold p-2">
               {name}
             </p>
           </span>
           {/* <EditButton id={_id}/> */}
         </div>
-
-        <p className="text-xl italic p-2">{description}</p>
+        <p className="text-l text-slate-600 italic p-2">{description}</p>
       </div>
-      
-      <p className="text-2xl p-2 my-2">Ingredients</p>
-      <article className="prose lg:prose-xl" dangerouslySetInnerHTML={{ __html: ingredients }}></article>
-
-      <p className="text-2xl p-2">Steps</p>
-      <article className="prose lg:prose-xl" dangerouslySetInnerHTML={{ __html: instructions }}></article>
-      <p className="text-2xl p-2">tags</p>
+      <SubHeader text="Ingredients" />
+      <MarkdownContent content={ingredients} />
+      <SubHeader text="Steps" />
+      <MarkdownContent content={instructions} />
+      <SubHeader text="Tags" />
       <Tags tagsList={tagsList}/>
     </PageBody>
   );

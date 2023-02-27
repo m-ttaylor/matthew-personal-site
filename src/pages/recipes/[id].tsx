@@ -5,6 +5,7 @@ import RecipeItem, { RecipeProps } from '@/components/recipeItem'
 import recipeService from '@/services/recipeService';
 import Container from '@/components/container';
 import { getMarkdownAsHtml } from '@/lib/markdown';
+import RecipesSubmenu from '@/components/recipesSubmenu';
 
 interface Params extends ParsedUrlQuery {
   id: string;
@@ -39,6 +40,7 @@ export const getStaticProps: GetStaticProps<RecipeProps, Params> = async (contex
 const RecipePage: NextPage<RecipeProps> = ({ recipe }) => {
   return (
     <Container>
+      <RecipesSubmenu />
       <RecipeItem recipe={recipe} />
     </Container>
   );

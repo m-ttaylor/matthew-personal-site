@@ -1,5 +1,6 @@
 import Container from "@/components/container";
 import RecipeList, { RecipeListProps } from "@/components/recipeList";
+import RecipesSubmenu from "@/components/recipesSubmenu";
 import recipeService from '@/services/recipeService';
 import { GetStaticProps, NextPage } from "next";
 
@@ -26,6 +27,7 @@ export const getStaticProps: GetStaticProps<RecipeListProps> = async (context) =
 const RecipesPage: NextPage<RecipeListProps> = ({ recipes }) => {
   return (
     <Container>
+      <RecipesSubmenu />
       <RecipeList recipes={recipes} />
     </Container>
   );
