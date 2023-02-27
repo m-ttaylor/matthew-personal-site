@@ -80,7 +80,7 @@ const RecipeList = ({ recipes }: {recipes: Recipe[]}) => {
 
   if (searchTerm.length > 0) {
     filteredRecipes = filteredRecipes.filter(r => 
-      r.tags.includes(searchTerm) || r.name.toLowerCase().includes(searchTerm)
+      r.tags.includes(searchTerm.toLowerCase()) || r.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }
 
