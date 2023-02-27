@@ -2,7 +2,7 @@ import { Recipe } from "@/types";
 
 const recipes: Recipe[] = [
   { 
-    name: "pasta con il pistacchio",
+    name: "Pasta con il pistacchio",
     description: "pasta with pistacchios and sausage",
     ingredients: `
 * 4 links sweet italian sausage
@@ -10,7 +10,7 @@ const recipes: Recipe[] = [
 * 1 glass white wine
 * 4 cloves garlic
 * crushed red pepper flakes
-* 28oz whole peeled tomatoes, chopped or crushed by hand
+* 28oz canned whole peeled tomatoes, chopped or crushed by hand
 * a few mint leaves
 * 1 lb casarecce pasta
 * 1 cup crushed pistacchio, divided in two`,
@@ -22,11 +22,12 @@ Using two pans, one to saute the sausage, another for garlic:
 1. When simmering is done, combine sausage with sauce and salt to taste.
 1. With the fire off, add mint leaves and the rest of the pistacchios, then toss with pasta.`,
     tags: "sausage, pistacchio, pistachio, tomato, pasta, italian",
+    category: "food",
     notes: "A paella pan or wok is good for combining ingredients",
     _id: "pasta-con-il-pistacchio"
   },
   {
-    name: "pancakes",
+    name: "Pancakes",
     description: "basic pancakes",
     ingredients: `
 * 1 cup AP flour
@@ -45,14 +46,15 @@ Using two pans, one to saute the sausage, another for garlic:
 1. Flip pancakes when the surface bubbles, after around 2 minutes, and cook on the other side until just browned.
 1. To keep warm, optionally store on a heatproof plate in a 200 degree oven.`,
     tags: "pancakes, breakfast",
+    category: "food",
     notes: "makes about 2 servings of pancakes",
     _id: "basic-pancakes"
   },
   {
-    name: "nashville hot tofu",
+    name: "Nashville hot tofu",
     description: "sacrilege",
     ingredients: `
-hot butter
+Hot butter
 * 8 tbsp unsalted butter
 * 2 tbsp distilled vinegar
 * 1 tbsp hot sauce
@@ -61,7 +63,7 @@ hot butter
 * 1/2 tsp garlic powder
 * 1/2 tsp onion powder
 
-tofu
+Tofu
 * 1 package firm tofu, drained
 * 1/4 cup whole milk
 * 1 cup AP flour
@@ -71,12 +73,12 @@ tofu
 * heaping 1/2 cup chilled seltzer water / club soda
 * vegetable oil
 
-assembly
+Assembly
 * 8 slider buns or quartered buns / bread
 * lettuce, pickles
 * mayonnaise or comeback sauce`,
     instructions: `
-1. melt butter in a small saucepan and mix in remaining hot bbutter ingredients.
+1. Melt butter in a small saucepan and mix in remaining hot bbutter ingredients.
 1. Divide tofu into eight pieces by cuting the tofu in half parallel to the cutting board, then  quartering each half.
 1. Pat tofu dry and set on towel or paper towel lined plate.
 1. Place milk and half of the flour in shallow bowls.
@@ -87,8 +89,30 @@ assembly
 1. Transfer cooked tofu to a paper towel-lined surface and sprinkle with salt.
 1. Brush tofu with hot tofu and serve on buns with desired toppings.`,
     tags: "tofu, hot, nashville, big game, hungry boys",
+    category: "food",
     notes: "",
     _id: "nashville-hot-tofu"
+  },
+  {
+    name: "Hurricane",
+    description: "classic New Orleans cocktail",
+    ingredients: `
+  * 1 oz light rum
+  * 1 oz dark rum
+  * 1/2 oz overproof rum
+  * 1 oz passionfruit syrup
+  * juice of half a lemon (~1 oz)
+  * 1/2 oz grenadine
+    `,
+    instructions: `
+  1. Chill a medium tulip, wine glass, or, if you have one, hurricane glass.
+  1. Combine ingredients in shaking tins and shake vigorously for 10-15 seconds.
+  1. Fill glass with ice and strain contents into glass. Serve.
+    `,
+    tags: "cocktail, sour, fruity",
+    category: "drink",
+    notes: "makes a fruity, fairly strong rendition somewhere between original recipes and modern, premixed ones",
+    _id: "hurricane"
   }
 ]
 
