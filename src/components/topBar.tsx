@@ -16,7 +16,7 @@ const TopBar = () => (
         <TopBarItem name="home" linkTo="/" />
         <TopBarItem name="work" linkTo="/resume"/>
         <TopBarItem name="cookbook" linkTo="/recipes" />
-        <TopBarItem name="links" linkTo="/links" />
+        <TopBarItem name="misc" linkTo="/misc" />
       </div>
       <hr className="w-60 h-px mx-auto my-4 bg-slate-400 border-0 rounded md:my-5 dark:bg-gray-700"/>
     </div>
