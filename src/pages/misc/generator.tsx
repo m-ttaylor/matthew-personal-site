@@ -50,7 +50,7 @@ const calculateEntropy = (passphraseLength: number, useSeparators: boolean, numb
   return Math.log2(perms).toFixed(2)
 }
 
-const Misc = () => {
+const Generator = () => {
   const [passphraseLength, setPassphraseLength] = useState<number>(4)
   const [useSeparators, setUseSeparators] = useState<boolean>(false)
   const [password, setPassword] = useState<string>("")
@@ -104,6 +104,7 @@ const Misc = () => {
               value={numbers} 
               type="number" 
               className="pl-1 w-12 bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              min="0"
               max="20"
             />
           </div>
@@ -127,8 +128,5 @@ const Misc = () => {
   </Container>
   );
 }
-export default Misc;
 
-function getPassphrase(length: number, separators: boolean, numbers: number) {
-  throw new Error("Function not implemented.");
-}
+export default Generator;
