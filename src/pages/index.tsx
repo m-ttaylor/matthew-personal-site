@@ -15,13 +15,13 @@ export default function Home() {
       </Head>
       <Container>
         <PageBody>
-          <h1 className="text-lg font-bold">Test</h1>
+          <h1 className="text-lg font-bold">Home Page</h1>
           <p className="my-2">
-            This is a site to dump miscellaneous things in. 
-            Right now, some of those things are some endpoints to generate useful tabletop RPG data, a WIP digital cookbook, and a resume.
+            Welcome!
           </p>
-          <p className="my-2">Foo.</p>
-          
+          <p className="my-2">
+            This site is a dumping ground/workspace for various data, projects, apps, and APIs. Right now, some of those things are a WIP digital cookbook and a passphrase generator.
+          </p>     
         </PageBody>
       </Container>
       {/* <div><h1 className="text-center">Matthew's Site</h1></div>
