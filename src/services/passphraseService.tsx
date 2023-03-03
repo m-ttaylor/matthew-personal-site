@@ -11,14 +11,14 @@ const getPassphrase = (length: number, separators: boolean, numbers: number): st
   const randomWords: string[] = []
 
   // generate the requested amount of random words and numbers all at once to avoid using a third Uint16Array
-  const array: Uint16Array = new Uint16Array(length + (numbers + 1));
+  const array: Uint16Array = new Uint16Array(length + (numbers));
   const cryptoRandomVals = crypto.getRandomValues(array);
 
   cryptoRandomVals.forEach((v, i) => {
     // random values will be between 0 and max size of a 16 bit int, so we convert to a float 0-1 and 
     // multiply (then floor) by the range + 1 that we want a random int over; length of the wordlist for words,
     // and length of the set (0 ... 9) for numbers
-    if (i <= length) {
+    if (i < length) {
       const result = Math.floor((v / (MAX_UINT16 + 1)) * (max+1));
       randomWords.push(wordlist[result])
     } else {
@@ -44,7 +44,7 @@ const getPassphrase = (length: number, separators: boolean, numbers: number): st
   randomWords.forEach((pp, i) => {
     passphrase += pp;
 
-    if (i < length) { // add neither separator nor space after last word
+    if (i < length-1) { // add neither separator nor space after last word
       passphrase += separators ? separatorChars[i] : " "
     }
   });
