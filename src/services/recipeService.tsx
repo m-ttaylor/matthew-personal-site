@@ -113,6 +113,32 @@ Assembly
     category: "drink",
     notes: "makes a fruity, fairly strong rendition somewhere between original recipes and modern, premixed ones",
     _id: "hurricane"
+  },
+  {
+    name: "Pasta alla Zozzona",
+    description: "a hybrid of amatriciana and carbonara, lit. \"dirty pasta\"",
+    ingredients: `
+* 1 lb guanciale (or 8 oz, if using sausage)
+* 8 oz sweet italian sausage, casings removed and broken up (optional)
+* half an onion, finely diced
+* 1 16oz can canned whole tomatoes
+* 4 large egg yolks
+* 1 cup (2oz) Pecorino Romano, grated
+* 1 lb bucatini, spaghetti, or other pasta
+* 1 tsp black pepper
+* red pepper flakes to taste`,
+    instructions: `
+1. Slice guanciale into 1/4 inch strips lengthwise, then cut each strip crosswise into 1/4 inch strips
+1. Heat olive oil in pan and cook gunaciale for about 5-10 minutes until browned. Remove and set aside, reserving a bit of grease in a bowl, and leaving the rest in the pan.
+1. Add sausage to pan and break apart with wooden spoon, then cook for 5-10 minutes until fully cooked and lightly browned. Remove and set aside. Reserve a small amount of oil separately, and strain excess, leaving some for the next step.
+1. Add diced onion and red pepper flakes and saute until translucent, then add whole tomatoes, breaking up tomatoes with your hands. Simmer sauce for 10-15 minutes.
+1. In the meantime, boil salted water for pasta and cook according to package directions.
+1. While the pasta is cooking, whisk pecorino, yolks, pepper, and reserved grease in a bowl until combined. Slowly whisk in about a half cup of pasta water directly from the cooking pasta into the mixture to temper.
+1. As soon as pasta is al dente, drain, reserving ~1 cup of pasta water. Return immediately to pot and toss with meat, and egg and cheese mixture. Keep pasta moving to avoid allowing eggs to set. Once well-coated, toss with tomato sauce; if mixture is too thick, mix in a bit of reserved pasta water at a time. Serve immeediately. `,
+    tags: "guanciale, sausage, tomato, carbonara, amatriciana, italian, roman, pasta",
+    category: "food",
+    notes: "",
+    _id: "pasta-alla-zozzona"
   }
 ]
 
