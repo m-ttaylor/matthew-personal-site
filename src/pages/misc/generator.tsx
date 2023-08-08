@@ -1,30 +1,13 @@
 
+import { SpecialToggle, Toggle } from "@/components/Toggle";
 import Container from "@/components/container";
 import PageBody from "@/components/pageBody";
 import PasswordDisplay from "@/components/passwordDisplay";
 import Slider from "@/components/slider";
 import passphraseService from "@/services/passphraseService";
 
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 
-
-interface ToggleProps {
-  label: string
-  toggleValue: boolean
-  setToggleValue: React.Dispatch<SetStateAction<boolean>>
-}
-
-const Toggle = ({ label, toggleValue, setToggleValue}: ToggleProps) => (
-  <>
-    <label className="text-gray-900 text-lg mr-2">{label}</label>
-    <input 
-      className="w-5 h-5 relative top-1 accent-teal-600 hover:accent-teal-500 focus:accent-teal-300"
-      type="checkbox"
-      onChange={()=>setToggleValue(!toggleValue)}
-      checked={toggleValue}
-    />
-  </>
-);
 
 const Disclaimer = () => (
   <div className="p-1 mx-1 md:mx-auto w-full max-w-4xl">
@@ -51,21 +34,47 @@ const calculateEntropy = (passphraseLength: number, useSeparators: boolean, numb
 }
 
 const Generator = () => {
-  const [passphraseLength, setPassphraseLength] = useState<number>(4)
-  const [useSeparators, setUseSeparators] = useState<boolean>(false)
-  const [password, setPassword] = useState<string>("")
-  const [numbers, setNumbers] = useState<number>(2)
+  const [passphraseLength, setPassphraseLength] = useState<number>(4);
+  const [useSeparators, setUseSeparators] = useState<boolean>(false);
+  const [spaceBetween, setSpaceBetween] = useState<boolean>(true);
+  const [titleCase, setTitleCase] = useState<boolean>(false);
+  const [password, setPassword] = useState<string>("");
+  const [numbers, setNumbers] = useState<number>(2);
   const [entropy, setEntropy] = useState<string>("0");
 
-  const generatePassword = (length: number, separators: boolean, numbers: number) => async () => {
+  const handleToggleCharacters = () => {
+    setUseSeparators(!useSeparators);
+    if (!useSeparators) {
+      setSpaceBetween(false);
+    }
+  }
+
+  const handleToggleSpaces = () => {
+    setSpaceBetween(!spaceBetween);
+    if (!spaceBetween) {
+      setUseSeparators(false);
+    }
+  }
+
+  const generatePassword = (length: number, separators: boolean, numbers: number, titleCase: boolean, spaceBetween: boolean) => async () => {
     if (length < 1) length = 1
     
-    const passphrase = passphraseService.getPassphrase(length, separators, numbers)
+    const passphrase = passphraseService.getPassphrase(length, separators, numbers, titleCase, spaceBetween)
     
     setEntropy(calculateEntropy(passphraseLength, useSeparators, numbers))
     setPassword(passphrase)
   }
 
+  useEffect(() => {
+
+    const setFirstPassword = async () => {
+      const passphrase = passphraseService.getPassphrase(passphraseLength, useSeparators, numbers, titleCase, spaceBetween)
+      setEntropy(calculateEntropy(passphraseLength, useSeparators, numbers))
+      setPassword(passphrase)
+    }
+    void setFirstPassword()
+  }, [])
+  
   return (
     <Container>
       <PageBody>        
@@ -90,42 +99,55 @@ const Generator = () => {
             max="20"
           />
       
-          <div className="mt-2 mb-8 flex-wrap">
+          <div id="options-checkboxes" className="block justify-center mt-2 mb-8 md:flex flex-wrap">
             <Toggle 
-              label="Separators?" 
-              toggleValue={useSeparators} 
-              setToggleValue={setUseSeparators} 
+              label="Title Case?" 
+              toggleValue={titleCase} 
+              setToggleValue={setTitleCase} 
             />
-            <label className="text-slate-800 text-lg mx-2">
-              Numbers: 
-            </label>
-            <input
-              onChange={(e) => setNumbers(parseInt(e.target.value))} 
-              value={numbers} 
-              type="number" 
-              className="pl-1 w-12 bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              min="0"
-              max="20"
-            />
+            <div id="separator-options" className="border inline-block border-gray-200 p-2 rounded-md text-slate-800">
+              <span className="font-bold text-lg">Separators:</span>
+              <SpecialToggle 
+                label="Characters?" 
+                toggleValue={useSeparators} 
+                handleToggle={handleToggleCharacters}
+              />
+              <SpecialToggle 
+                label="Spaces?" 
+                toggleValue={spaceBetween} 
+                handleToggle={handleToggleSpaces}
+              />
+            </div>
+            <div id="numbers-selector" className="p-2">
+              <label className="text-slate-800 text-lg ml-3 mr-1">
+                Numbers: 
+              </label>
+              <input
+                onChange={(e) => setNumbers(parseInt(e.target.value))} 
+                value={numbers} 
+                type="number" 
+                className="pl-1 mr-2 w-12 bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                min="0"
+                max="20"
+              />
+            </div>
           </div>
 
           {password ? <PasswordDisplay password={password} entropy={entropy}/> : null}
           
-          <div className="text-xl py-4 font-bold text-center">
+          <div className="text-xl py-4 text-center">
             <button
-              className="bg-teal-700 border-slate-800/70 border-4 border-dashed focus:bg-teal-300 hover:bg-teal-400 text-2xl text-white py-4 px-8 rounded-xl"
+              className="bg-teal-700 border-slate-800/70 border-4 border-dashed focus:bg-teal-300 hover:bg-teal-400 text-xl text-white py-2 px-8 rounded-xl"
               name="Generate!"
-              onClick={generatePassword(passphraseLength, useSeparators, numbers)}
+              onClick={generatePassword(passphraseLength, useSeparators, numbers, titleCase, spaceBetween)}
             >
-              Generate!
+              regenerate ⟳
             </button>
           </div>
         </div>
-    </PageBody>
-
-    <Disclaimer />
-
-  </Container>
+      </PageBody>
+      <Disclaimer />
+    </Container>
   );
 }
 
