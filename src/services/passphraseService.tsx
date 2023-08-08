@@ -5,7 +5,7 @@ const MAX_UINT16 = 0xffff;
 const max = wordlist.length
 const separatorCharSet = "!@#$%^&"
 
-const getPassphrase = (length: number, separators: boolean, numbers: number): string => {
+const getPassphrase = (length: number, separators: boolean, numbers: number, titleCase: boolean, spaceBetween: boolean): string => {
   
   let endNumbers = ""
   const randomWords: string[] = []
@@ -20,7 +20,8 @@ const getPassphrase = (length: number, separators: boolean, numbers: number): st
     // and length of the set (0 ... 9) for numbers
     if (i < length) {
       const result = Math.floor((v / (MAX_UINT16 + 1)) * (max+1));
-      randomWords.push(wordlist[result])
+      const word = titleCase ? (wordlist[result][0].toUpperCase() + wordlist[result].slice(1)) : wordlist[result]
+      randomWords.push(word)
     } else {
       const result = Math.floor((v / (MAX_UINT16 + 1)) * (10))
       endNumbers += result.toString();
@@ -45,7 +46,7 @@ const getPassphrase = (length: number, separators: boolean, numbers: number): st
     passphrase += pp;
 
     if (i < length-1) { // add neither separator nor space after last word
-      passphrase += separators ? separatorChars[i] : " "
+      passphrase += separators ? separatorChars[i] : spaceBetween ? " " : ""
     }
   });
   
