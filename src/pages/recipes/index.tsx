@@ -3,19 +3,11 @@ import RecipeList, { RecipeListProps } from "@/components/recipeList";
 import RecipesSubmenu from "@/components/recipesSubmenu";
 import recipeService from '@/services/recipeService';
 import { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 
 export const getStaticProps: GetStaticProps<RecipeListProps> = async (context) => {
 
-
-  // const { id } = context.params!;
   const recipes = await recipeService.getRecipes();
-
-  // const processedContent = await remark()
-  //   .use(html)
-  //   .process(recipe.ingredients);
-  // recipe.ingredients = processedContent.toString();
-
-  // recipe.ingredients = await getMarkdownAsHtml(recipe.ingredients);
 
   return {
     props: {
@@ -26,12 +18,16 @@ export const getStaticProps: GetStaticProps<RecipeListProps> = async (context) =
 
 const RecipesPage: NextPage<RecipeListProps> = ({ recipes }) => {
   return (
-    <Container>
-      <RecipesSubmenu />
-      <RecipeList recipes={recipes} />
-    </Container>
+    <>
+      <Head>
+        <title>Recipes</title>
+        <meta name="description" content="A handful of digitized recipes" />
+      </Head>
+      <Container>
+        <RecipesSubmenu />
+        <RecipeList recipes={recipes} />
+      </Container></>
   );
 }
-
 
 export default RecipesPage;
