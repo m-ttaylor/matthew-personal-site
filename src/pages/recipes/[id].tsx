@@ -6,6 +6,7 @@ import recipeService from '@/services/recipeService';
 import Container from '@/components/container';
 import { getMarkdownAsHtml } from '@/lib/markdown';
 import RecipesSubmenu from '@/components/recipesSubmenu';
+import Head from 'next/head';
 
 interface Params extends ParsedUrlQuery {
   id: string;
@@ -14,9 +15,9 @@ interface Params extends ParsedUrlQuery {
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
 
   const recipes = await recipeService.getRecipes();
-  const paths = recipes.map(recipe => ({ 
-      params: {id: recipe._id} 
-    })
+  const paths = recipes.map(recipe => ({
+    params: { id: recipe._id }
+  })
   )
 
   return { paths, fallback: false }
@@ -39,10 +40,15 @@ export const getStaticProps: GetStaticProps<RecipeProps, Params> = async (contex
 
 const RecipePage: NextPage<RecipeProps> = ({ recipe }) => {
   return (
-    <Container>
-      <RecipesSubmenu />
-      <RecipeItem recipe={recipe} />
-    </Container>
+    <>
+      <Head>
+        <title>{recipe.name}</title>
+        <meta name="description" content={recipe.description} />
+      </Head><Container>
+        <RecipesSubmenu />
+        <RecipeItem recipe={recipe} />
+      </Container>
+    </>
   );
 }
 
