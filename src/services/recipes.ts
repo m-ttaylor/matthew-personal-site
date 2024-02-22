@@ -97,18 +97,16 @@ export const recipes: Recipe[] = [
         name: "Hurricane",
         description: "classic New Orleans cocktail",
         ingredients: `
-    * 1 oz light rum
-    * 1 oz dark rum
-    * 1/2 oz overproof rum
-    * 1 oz passionfruit syrup
-    * juice of half a lemon (~1 oz)
-    * 1/2 oz grenadine
-      `,
+* 1 oz light rum
+* 1 oz dark rum
+* 1/2 oz overproof rum
+* 1 oz passionfruit syrup
+* juice of half a lemon (~1 oz)
+* 1/2 oz grenadine`,
         instructions: `
-    1. Chill a medium tulip, wine glass, or, if you have one, hurricane glass.
-    1. Combine ingredients in shaking tins and shake vigorously for 10-15 seconds.
-    1. Fill glass with ice and strain contents into glass. Serve.
-      `,
+1. Chill a medium tulip, wine glass, or, if you have one, hurricane glass.
+1. Combine ingredients in shaking tins and shake vigorously for 10-15 seconds.
+1. Fill glass with ice and strain contents into glass. Serve.`,
         tags: "cocktail, sour, fruity",
         category: "drink",
         notes: "makes a fruity, fairly strong rendition somewhere between original recipes and modern, premixed ones",
